@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { create } from 'domain';
-import { Repository, UpdateResult, DeleteResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CreateIngredientDto } from './dto/ingredient.dto';
 import { Ingredient } from './ingredient.entity';
 
@@ -13,18 +12,26 @@ export class IngredientService {
   ) {}
 
   async create(ingredient: CreateIngredientDto) {
-    return await this.ingredientRepository.save(ingredient);
+    try {
+      return await this.ingredientRepository.save(ingredient);
+    } catch (e) {
+      throw new BadRequestException('Ingredient already exists!');
+    }
   }
 
   async readAll() {
     return await this.ingredientRepository.find();
   }
 
+  async readOne(id: number) {
+    return await this.ingredientRepository.findOne(id);
+  }
+
   async update(ingredient: Ingredient) {
     return await this.ingredientRepository.update(ingredient.id, ingredient);
   }
 
-  async delete(id) {
+  async delete(id: number) {
     return await this.ingredientRepository.delete(id);
   }
 

@@ -4,3 +4,7 @@ import { Injectable } from '@nestjs/common';
 export class CreateIngredientDto {
   name: string;
 }
+
+export class AssignIngredientDto {
+  id: number;
+}
