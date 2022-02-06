@@ -36,7 +36,6 @@ export class IngredientController {
     return this.ingredientService.create(ingredient);
   }
 
-  //NEM MŰKÖDIK MÉG, NEM IS KELL
   @Put(':id/update')
   async update(@Param('id') id: number, @Body() data: Ingredient) {
     const ingredient = await this.ingredientService.readOne(id);

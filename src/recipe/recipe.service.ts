@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateRecipeDto, UpdateRecipeDto } from './dto/recipe.dto';
+import { CreateRecipeDto } from './dto/recipe.dto';
 import { Recipe } from './recipe.entity';
 
 @Injectable()
@@ -30,12 +30,12 @@ export class RecipeService {
     });
   }
 
-  async update(id: number, data: UpdateRecipeDto) {
+  async update(id: number, data: Recipe) {
     data.id = id;
 
-    const recipe = await this.recipeRepository.save(data);
+    const recipe = await this.recipeRepository.update(id, data);
 
-    return this.readOne(recipe.id);
+    return this.recipeRepository.save(data);
   }
 
   async delete(id: number) {
