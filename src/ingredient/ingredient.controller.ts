@@ -21,7 +21,7 @@ export class IngredientController {
   }
 
   @Get(':id')
-  async getOne(id: number) {
+  async getOne(@Param('id') id: number) {
     const ingredient = await this.ingredientService.readOne(id);
 
     if (!ingredient) {
@@ -36,11 +36,16 @@ export class IngredientController {
     return this.ingredientService.create(ingredient);
   }
 
-  //NEM MŰKÖDIK MÉG
+  //NEM MŰKÖDIK MÉG, NEM IS KELL
   @Put(':id/update')
-  async update(@Param('id') id, @Body() ingredient: Ingredient) {
-    ingredient.id = Number(id);
-    return this.ingredientService.update(ingredient);
+  async update(@Param('id') id: number, @Body() data: Ingredient) {
+    const ingredient = await this.ingredientService.readOne(id);
+
+    if (!ingredient) {
+      throw new NotFoundException();
+    }
+
+    return this.ingredientService.update(id, data);
   }
 
   @Delete(':id/delete')

@@ -3,10 +3,8 @@ import {
   Column,
   Entity,
   Index,
-  JoinColumn,
   JoinTable,
   ManyToMany,
-  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 

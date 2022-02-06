@@ -22,7 +22,7 @@ export class RecipeController {
   }
 
   @Get(':id')
-  async getOne(id: number) {
+  async getOne(@Param('id') id: number) {
     const recipe = await this.recipeService.readOne(id);
 
     if (!recipe) {

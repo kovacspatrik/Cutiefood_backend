@@ -15,7 +15,7 @@ export class IngredientService {
     try {
       return await this.ingredientRepository.save(ingredient);
     } catch (e) {
-      throw new BadRequestException('Ingredient already exists!');
+      throw new BadRequestException();
     }
   }
 
@@ -27,8 +27,12 @@ export class IngredientService {
     return await this.ingredientRepository.findOne(id);
   }
 
-  async update(ingredient: Ingredient) {
-    return await this.ingredientRepository.update(ingredient.id, ingredient);
+  async update(id: number, data: Ingredient) {
+    data.id = id;
+
+    const ingredient = await this.ingredientRepository.update(id, data);
+
+    return this.readOne(id);
   }
 
   async delete(id: number) {
