@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { IngredientModule } from './ingredient/ingredient.module';
 import { RecipeModule } from './recipe/recipe.module';
+import { RecipeIngredientModule } from './recipe-ingredient/recipe-ingredient.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { RecipeModule } from './recipe/recipe.module';
     }),
     IngredientModule,
     RecipeModule,
+    RecipeIngredientModule,
   ],
   controllers: [AppController],
   providers: [AppService],

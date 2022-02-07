@@ -1,11 +1,6 @@
-import { Ingredient } from 'src/ingredient/ingredient.entity';
-import {
-  Column,
-  Entity,
-  JoinTable,
-  ManyToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Options } from '@nestjs/common';
+import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'recipe' })
 export class Recipe {
@@ -29,11 +24,17 @@ export class Recipe {
   })
   picture: string;
 
-  @ManyToMany(() => Ingredient)
-  @JoinTable({
-    name: 'recipe_ingredients',
-    joinColumns: [{ name: 'recipe_id' }],
-    inverseJoinColumns: [{ name: 'ingredient_id' }],
-  })
-  ingredients: Ingredient[];
+  // @ManyToMany(() => Ingredient)
+  // @JoinTable({
+  //   name: 'recipe_ingredients',
+  //   joinColumns: [{ name: 'recipe_id' }],
+  //   inverseJoinColumns: [{ name: 'ingredient_id' }],
+  // })
+  // ingredients: Ingredient[];
+
+  @OneToMany(
+    () => RecipeIngredient,
+    (recipeIngredient) => recipeIngredient.recipe,
+  )
+  ingredients: RecipeIngredient[];
 }
