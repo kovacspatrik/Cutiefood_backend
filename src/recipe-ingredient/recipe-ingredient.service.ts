@@ -20,11 +20,15 @@ export class RecipeIngredientService {
   }
 
   async readAll() {
-    return await this.recipeIngredientRepository.find();
+    return await this.recipeIngredientRepository.find({
+      relations: ['ingredient'],
+    });
   }
 
   async readOne(id: number) {
-    return await this.recipeIngredientRepository.findOne(id);
+    return await this.recipeIngredientRepository.findOne(id, {
+      relations: ['ingredient'],
+    });
   }
 
   async deleteAll() {

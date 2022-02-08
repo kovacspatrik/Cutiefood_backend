@@ -13,11 +13,14 @@ export class RecipeIngredient {
   @PrimaryGeneratedColumn({ name: 'id', type: 'int' })
   id: number;
 
-  @ManyToOne(() => Recipe, (recipe) => recipe.ingredients)
+  @ManyToOne(() => Recipe, (recipe) => recipe.ingredients, { cascade: true })
   @JoinColumn()
   recipe: Recipe;
 
-  @ManyToOne(() => Ingredient, (ingredient) => ingredient.recipes)
+  @ManyToOne(() => Ingredient, (ingredient) => ingredient.recipes, {
+    cascade: true,
+    eager: true,
+  })
   @JoinColumn()
   ingredient: Ingredient;
 
