@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AssignRecipeIngredientDto } from 'src/recipe-ingredient/dto/recipe-ingredient.dto';
 import { Repository } from 'typeorm';
 import { CreateRecipeDto } from './dto/recipe.dto';
 import { Recipe } from './recipe.entity';

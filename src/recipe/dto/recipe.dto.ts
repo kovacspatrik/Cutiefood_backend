@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { AssignIngredientDto } from 'src/ingredient/dto/ingredient.dto';
-import { Ingredient } from 'src/ingredient/ingredient.entity';
 import { AssignRecipeIngredientDto } from 'src/recipe-ingredient/dto/recipe-ingredient.dto';
 
 @Injectable()
@@ -8,5 +6,5 @@ export class CreateRecipeDto {
   name: string;
   process: string;
   picture: string;
-  //ingredients: AssignRecipeIngredientDto[];
+  ingredients: AssignRecipeIngredientDto[];
 }
