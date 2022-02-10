@@ -6,5 +6,4 @@ export class CreateRecipeDto {
   name: string;
   process: string;
   picture: string;
-  ingredients: AssignRecipeIngredientDto[];
 }

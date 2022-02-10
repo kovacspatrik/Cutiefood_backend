@@ -1,6 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AssignRecipeIngredientDto } from 'src/recipe-ingredient/dto/recipe-ingredient.dto';
 import { Repository } from 'typeorm';
 import { CreateRecipeDto } from './dto/recipe.dto';
 import { Recipe } from './recipe.entity';
@@ -13,6 +12,8 @@ export class RecipeService {
 
   async create(recipe: CreateRecipeDto) {
     try {
+      const entity = await this.recipeRepository.create(recipe);
+
       return await this.recipeRepository.save(recipe);
     } catch (e) {
       throw new BadRequestException('Recipe already exists!');

@@ -24,17 +24,10 @@ export class Recipe {
   })
   picture: string;
 
-  // @ManyToMany(() => Ingredient)
-  // @JoinTable({
-  //   name: 'recipe_ingredients',
-  //   joinColumns: [{ name: 'recipe_id' }],
-  //   inverseJoinColumns: [{ name: 'ingredient_id' }],
-  // })
-  // ingredients: Ingredient[];
-
   @OneToMany(
     () => RecipeIngredient,
     (recipeIngredient) => recipeIngredient.recipe,
+    { cascade: true },
   )
   ingredients: RecipeIngredient[];
 }

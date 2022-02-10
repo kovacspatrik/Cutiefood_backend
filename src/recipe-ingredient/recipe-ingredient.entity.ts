@@ -13,13 +13,14 @@ export class RecipeIngredient {
   @Column({ name: 'quantity', type: 'varchar' })
   quantity: string;
 
-  @ManyToOne(() => Recipe, (recipe) => recipe.ingredients)
+  @ManyToOne(() => Recipe, (recipe) => recipe.ingredients, {
+    primary: true,
+  })
   @JoinColumn({ name: 'recipe_id' })
   recipe: Recipe;
 
   @ManyToOne(() => Ingredient, (ingredient) => ingredient.recipes, {
     primary: true,
-    cascade: true,
     eager: true,
   })
   @JoinColumn({ name: 'ingredient_id' })
