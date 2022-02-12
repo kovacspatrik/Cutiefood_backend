@@ -7,3 +7,11 @@ export class CreateRecipeDto {
   process: string;
   picture: string;
 }
+
+export class UpdateRecipeDto {
+  id: number;
+  name: string;
+  process: string;
+  picture: string;
+  ingredients: AssignIngredientDto[];
+}

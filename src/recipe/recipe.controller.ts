@@ -8,7 +8,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { CreateRecipeDto } from './dto/recipe.dto';
+import { CreateRecipeDto, UpdateRecipeDto } from './dto/recipe.dto';
 import { Recipe } from './recipe.entity';
 import { RecipeService } from './recipe.service';
 
@@ -39,7 +39,7 @@ export class RecipeController {
 
   //NEM MŰKÖDIK MÉG
   @Put(':id/update')
-  async update(@Param('id') id: number, @Body() data: Recipe) {
+  async update(@Param('id') id: number, @Body() data: UpdateRecipeDto) {
     const recipe = await this.recipeService.readOne(id);
 
     if (!recipe) {
