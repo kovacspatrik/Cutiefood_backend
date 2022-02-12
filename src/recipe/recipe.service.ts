@@ -32,12 +32,12 @@ export class RecipeService {
     });
   }
 
-  async update(id: number, data: UpdateRecipeDto) {
+  async update(id: number, data: Recipe) {
     data.id = id;
 
-    const recipe = await this.recipeRepository.save(data);
+    const recipe = await this.recipeRepository.update(id, data);
 
-    return this.readOne(recipe.id);
+    return this.readOne(id);
   }
 
   async delete(id: number) {
