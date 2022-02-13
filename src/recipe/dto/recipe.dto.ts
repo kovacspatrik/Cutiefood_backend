@@ -5,6 +5,7 @@ import { AssignRecipeIngredientDto } from 'src/recipe-ingredient/dto/recipe-ingr
 @Injectable()
 export class CreateRecipeDto {
   name: string;
+  diffLevel: number;
   process: string;
   picture: string;
 }
@@ -13,6 +14,7 @@ export class UpdateRecipeDto {
   id: number;
   name: string;
   process: string;
+  diffLevel: number;
   picture: string;
   ingredients: AssignRecipeIngredientDto[];
 }

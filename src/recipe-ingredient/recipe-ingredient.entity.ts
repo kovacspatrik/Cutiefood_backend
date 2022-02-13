@@ -15,12 +15,16 @@ export class RecipeIngredient {
 
   @ManyToOne(() => Recipe, (recipe) => recipe.ingredients, {
     primary: true,
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'recipe_id' })
   recipe: Recipe;
 
   @ManyToOne(() => Ingredient, (ingredient) => ingredient.recipes, {
     primary: true,
+    nullable: false,
     eager: true,
   })
   @JoinColumn({ name: 'ingredient_id' })

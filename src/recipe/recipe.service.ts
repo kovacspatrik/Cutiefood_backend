@@ -1,6 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Ingredient } from 'src/ingredient/ingredient.entity';
+import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
+import { getRepository, Repository } from 'typeorm';
 import { CreateRecipeDto, UpdateRecipeDto } from './dto/recipe.dto';
 import { Recipe } from './recipe.entity';
 
@@ -12,7 +14,7 @@ export class RecipeService {
 
   async create(recipe: CreateRecipeDto) {
     try {
-      const entity = await this.recipeRepository.create(recipe);
+      //const entity = await this.recipeRepository.create(recipe);
 
       return await this.recipeRepository.save(recipe);
     } catch (e) {
@@ -35,7 +37,7 @@ export class RecipeService {
   async update(id: number, data: Recipe) {
     data.id = id;
 
-    const recipe = await this.recipeRepository.update(id, data);
+    const entity = await this.recipeRepository.save(data);
 
     return this.readOne(id);
   }

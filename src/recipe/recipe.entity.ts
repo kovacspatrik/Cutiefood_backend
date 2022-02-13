@@ -24,6 +24,12 @@ export class Recipe {
   })
   picture: string;
 
+  @Column({
+    name: 'diffLevel',
+    type: 'tinyint',
+  })
+  diffLevel: number;
+
   @OneToMany(
     () => RecipeIngredient,
     (recipeIngredient) => recipeIngredient.recipe,
