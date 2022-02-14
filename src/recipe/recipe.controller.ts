@@ -40,7 +40,7 @@ export class RecipeController {
 
   //NEM MŰKÖDIK MÉG
   @Put(':id/update')
-  async update(@Param('id') id: number, @Body() data: Recipe) {
+  async update(@Param('id') id: number, @Body() data: UpdateRecipeDto) {
     const recipe = await this.recipeService.readOne(id);
 
     if (!recipe) {
