@@ -18,7 +18,7 @@ export class RecipeService {
 
       return await this.recipeRepository.save(recipe);
     } catch (e) {
-      throw new BadRequestException('Recipe already exists!');
+      throw e;
     }
   }
 
@@ -34,10 +34,8 @@ export class RecipeService {
     });
   }
 
-  async update(id: number, data: Recipe) {
-    data.id = id;
-
-    const entity = await this.recipeRepository.save(data);
+  async update(id: number, data: UpdateRecipeDto) {
+    const test = await this.recipeRepository.save(data);
 
     return this.readOne(id);
   }
