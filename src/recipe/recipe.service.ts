@@ -35,7 +35,10 @@ export class RecipeService {
   }
 
   async update(id: number, data: UpdateRecipeDto) {
-    const test = await this.recipeRepository.save(data);
+    // data = await this.recipeRepository.findOne(id);
+    data.id = Number(id);
+
+    const entity = await this.recipeRepository.save(data);
 
     return this.readOne(id);
   }

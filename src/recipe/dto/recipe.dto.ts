@@ -1,4 +1,5 @@
 import { UpdateRecipeIngredientDto } from 'src/recipe-ingredient/dto/recipe-ingredient.dto';
+import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
 
 export class CreateRecipeDto {
   name: string;
