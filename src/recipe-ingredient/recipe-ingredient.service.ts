@@ -1,5 +1,6 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Recipe } from 'src/recipe/recipe.entity';
 import { Repository } from 'typeorm';
 import { RecipeIngredientDto } from './dto/recipe-ingredient.dto';
 import { RecipeIngredient } from './recipe-ingredient.entity';
@@ -29,6 +30,16 @@ export class RecipeIngredientService {
     return await this.recipeIngredientRepository.findOne(id, {
       relations: ['ingredient'],
     });
+  }
+
+  async delete(recipe: Recipe) {
+    try {
+      return await recipe.ingredients.forEach((element) => {
+        this.recipeIngredientRepository.delete(element);
+      });
+    } catch (e) {
+      return e;
+    }
   }
 
   async deleteAll() {

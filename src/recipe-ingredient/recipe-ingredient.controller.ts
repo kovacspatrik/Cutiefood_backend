@@ -35,6 +35,11 @@ export class RecipeIngredientController {
     return this.recipeIngredientService.create(recipe);
   }
 
+  @Delete(':redipeId/delete')
+  async delete(@Param('recipeId') recipeId) {
+    return this.recipeIngredientService.delete(recipeId);
+  }
+
   @Delete('delete_all')
   async deleteAll() {
     return this.recipeIngredientService.deleteAll();
