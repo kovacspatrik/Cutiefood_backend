@@ -34,6 +34,7 @@ export class RecipeService {
     });
   }
 
+  //még bugos
   async update(id: number, data: UpdateRecipeDto) {
     // data = await this.recipeRepository.findOne(id);
     data.id = Number(id);
