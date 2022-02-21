@@ -1,5 +1,13 @@
 import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'src/user/user.entity';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'recipe' })
 export class Recipe {
@@ -35,4 +43,7 @@ export class Recipe {
     { cascade: true },
   )
   ingredients: RecipeIngredient[];
+
+  @ManyToOne(() => User, (user) => user.recipes)
+  user: User;
 }

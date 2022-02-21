@@ -23,10 +23,10 @@ export class UserService {
   }
 
   async readAll() {
-    return await this.userRepository.find();
+    return await this.userRepository.find({ relations: ['recipes'] });
   }
 
   async readOne(id: number) {
-    return await this.userRepository.findOne(id);
+    return await this.userRepository.findOne(id, { relations: ['recipes'] });
   }
 }

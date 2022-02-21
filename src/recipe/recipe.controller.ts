@@ -20,6 +20,11 @@ export class RecipeController {
     return this.recipeService.readAll();
   }
 
+  @Get('user/:id')
+  async getRecipeByUserId(@Param('id') id: number) {
+    return await this.recipeService.readByUserId(id);
+  }
+
   @Get(':id')
   async getOne(@Param('id') id: number) {
     const recipe = await this.recipeService.readOne(id);
