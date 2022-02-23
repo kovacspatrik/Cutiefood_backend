@@ -24,25 +24,34 @@ export class RecipeService {
 
   async readAll() {
     return await this.recipeRepository.find({
-      relations: ['ingredients'],
+      relations: ['ingredients', 'user'],
+    });
+  }
+
+  async readByUserId(id: number) {
+    return await this.recipeRepository.find({
+      where: {
+        user: { id: id },
+      },
+      relations: ['ingredients', 'user'],
     });
   }
 
   async readOne(id: number) {
     return await this.recipeRepository.findOne(id, {
-      relations: ['ingredients'],
+      relations: ['ingredients', 'user'],
     });
   }
 
   async update(id: number, data: UpdateRecipeDto) {
     // data = await this.recipeRepository.findOne(id);
-    data.id = Number(id);
+    //data.id = Number(id);
 
-    this.recipeIngredientService.delete(await this.readOne(id));
+    this.delete(id);
 
     const entity = await this.recipeRepository.save(data);
 
-    return this.readOne(id);
+    return this.readOne(data.id);
   }
 
   async delete(id: number) {
