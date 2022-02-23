@@ -41,7 +41,7 @@ export class UserController {
   async login(@Body() user: UserDto) {
     const loggedInUser = await this.userService.login(user);
     if (!loggedInUser) {
-      throw new BadRequestException('Sikertelen bejelentkezés');
+      throw new BadRequestException('Hibás bejelentkezési adatok!');
     }
 
     return loggedInUser;
