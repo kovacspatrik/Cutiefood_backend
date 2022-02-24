@@ -1,4 +1,5 @@
 import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
+import { UserFavouriteRecipes } from 'src/user-favourite-recipes/user-favourite-recipes.entity';
 import { User } from 'src/user/user.entity';
 import {
   Column,
@@ -46,4 +47,10 @@ export class Recipe {
 
   @ManyToOne(() => User, (user) => user.recipes)
   user: User;
+
+  @OneToMany(
+    () => UserFavouriteRecipes,
+    (userFavouriteRecipes) => userFavouriteRecipes.recipe,
+  )
+  usersLiked: UserFavouriteRecipes[];
 }
