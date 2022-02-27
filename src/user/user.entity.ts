@@ -1,4 +1,5 @@
 import { Recipe } from 'src/recipe/recipe.entity';
+import { UserFavouriteRecipes } from 'src/user-favourite-recipes/user-favourite-recipes.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'user' })
@@ -14,4 +15,11 @@ export class User {
 
   @OneToMany(() => Recipe, (recipe) => recipe.user)
   recipes: Recipe[];
+
+  @OneToMany(
+    () => UserFavouriteRecipes,
+    (userFavouriteRecipes) => userFavouriteRecipes.user,
+    { cascade: true },
+  )
+  favouriteRecipes: UserFavouriteRecipes[];
 }
