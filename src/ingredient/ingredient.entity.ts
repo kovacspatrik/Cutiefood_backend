@@ -1,4 +1,5 @@
 import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
+import { UserShoppingList } from 'src/user-shopping-list/user-shopping-list.entity';
 import {
   Column,
   Entity,
@@ -21,4 +22,10 @@ export class Ingredient {
     (recipeIngredient) => recipeIngredient.ingredient,
   )
   recipes: RecipeIngredient[];
+
+  @OneToMany(
+    () => UserShoppingList,
+    (userShoppingList) => userShoppingList.ingredient,
+  )
+  shopListUsers: UserShoppingList[];
 }
