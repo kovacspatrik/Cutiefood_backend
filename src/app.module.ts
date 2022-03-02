@@ -7,6 +7,7 @@ import { RecipeModule } from './recipe/recipe.module';
 import { RecipeIngredientModule } from './recipe-ingredient/recipe-ingredient.module';
 import { UserModule } from './user/user.module';
 import { UserFavouriteRecipesModule } from './user-favourite-recipes/user-favourite-recipes.module';
+import { UserShoppingListModule } from './user-shopping-list/user-shopping-list.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { UserFavouriteRecipesModule } from './user-favourite-recipes/user-favour
     RecipeIngredientModule,
     UserModule,
     UserFavouriteRecipesModule,
+    UserShoppingListModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,7 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
-import { User } from 'src/user/user.entity';
 import { UserFavouriteRecipesDto } from './dto/user-favourite-recipes.dto';
-import { UserFavouriteRecipes } from './user-favourite-recipes.entity';
 import { UserFavouriteRecipesService } from './user-favourite-recipes.service';
 
 @Controller('user-favourite-recipes')
