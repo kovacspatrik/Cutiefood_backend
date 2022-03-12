@@ -1,4 +1,5 @@
 import { RecipeIngredient } from 'src/recipe-ingredient/recipe-ingredient.entity';
+import { UserCalendar } from 'src/user-calendar/user-calendar.entity';
 import { UserFavouriteRecipes } from 'src/user-favourite-recipes/user-favourite-recipes.entity';
 import { User } from 'src/user/user.entity';
 import {
@@ -53,4 +54,7 @@ export class Recipe {
     (userFavouriteRecipes) => userFavouriteRecipes.recipe,
   )
   usersLiked: UserFavouriteRecipes[];
+
+  @OneToMany(() => UserCalendar, (userCalendar) => userCalendar.recipe)
+  calendarEvents: UserCalendar[];
 }

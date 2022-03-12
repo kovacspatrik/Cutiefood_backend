@@ -1,4 +1,5 @@
 import { Recipe } from 'src/recipe/recipe.entity';
+import { UserCalendar } from 'src/user-calendar/user-calendar.entity';
 import { UserFavouriteRecipes } from 'src/user-favourite-recipes/user-favourite-recipes.entity';
 import { UserShoppingList } from 'src/user-shopping-list/user-shopping-list.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
@@ -30,4 +31,7 @@ export class User {
     { cascade: true },
   )
   shopListIngredients: UserShoppingList[];
+
+  @OneToMany(() => UserCalendar, (userCalendar) => userCalendar.user)
+  calendarEvents: UserCalendar[];
 }

@@ -14,8 +14,6 @@ export class RecipeService {
 
   async create(recipe: CreateRecipeDto) {
     try {
-      //const entity = await this.recipeRepository.create(recipe);
-
       return await this.recipeRepository.save(recipe);
     } catch (e) {
       throw e;
