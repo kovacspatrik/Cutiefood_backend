@@ -8,6 +8,7 @@ import { RecipeIngredientModule } from './recipe-ingredient/recipe-ingredient.mo
 import { UserModule } from './user/user.module';
 import { UserFavouriteRecipesModule } from './user-favourite-recipes/user-favourite-recipes.module';
 import { UserShoppingListModule } from './user-shopping-list/user-shopping-list.module';
+import { UserCalendarModule } from './user-calendar/user-calendar.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { UserShoppingListModule } from './user-shopping-list/user-shopping-list.
     UserModule,
     UserFavouriteRecipesModule,
     UserShoppingListModule,
+    UserCalendarModule,
   ],
   controllers: [AppController],
   providers: [AppService],
