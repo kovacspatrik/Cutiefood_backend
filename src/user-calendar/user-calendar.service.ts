@@ -20,7 +20,9 @@ export class UserCalendarService {
         },
       });
       if ((await recipestoday).length >= 3) {
-        throw new BadRequestException("Can't have more than 3 recipes a day!");
+        throw new BadRequestException(
+          'Egy napra maximum 3 receptet lehet elmenteni!',
+        );
       } else {
         return await this.userCalendarRepository.save(data);
       }
