@@ -45,4 +45,12 @@ export class RecipeIngredientService {
   async deleteAll() {
     return await this.recipeIngredientRepository.clear();
   }
+
+  async deleteByRecipeId(id: number) {
+    const data = await this.recipeIngredientRepository.find({
+      where: { recipeId: id },
+    });
+    console.log(data);
+    // TODO: ITT TÖRÖLNI MINDEN HOZZÁVALÓT!
+  }
 }
