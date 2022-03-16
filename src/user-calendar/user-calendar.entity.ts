@@ -21,6 +21,7 @@ export class UserCalendar {
   @ManyToOne(() => Recipe, (recipe) => recipe.calendarEvents, {
     primary: false,
     nullable: false,
+    onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'recipe_id' })
   recipe: Recipe;

@@ -7,6 +7,7 @@ export class UserFavouriteRecipes {
   @ManyToOne(() => Recipe, (recipe) => recipe.usersLiked, {
     primary: true,
     nullable: false,
+    onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'recipe_id' })
   recipe: Recipe;
