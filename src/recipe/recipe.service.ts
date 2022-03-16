@@ -42,14 +42,15 @@ export class RecipeService {
   }
 
   async update(id: number, data: UpdateRecipeDto) {
-    // data = await this.recipeRepository.findOne(id);
-    //data.id = Number(id);
+    data.id = Number(id);
 
-    //this.delete(id);
-    this.recipeIngredientService.deleteByRecipeId(id);
-    //const entity = await this.recipeRepository.save(data);
+    this.recipeIngredientService.deleteByRecipeId(id).then(() => {
+      setTimeout(() => {
+        this.recipeRepository.save(data);
+      });
+    });
 
-    // return this.readOne(data.id);
+    return this.readOne(data.id);
   }
 
   async delete(id: number) {

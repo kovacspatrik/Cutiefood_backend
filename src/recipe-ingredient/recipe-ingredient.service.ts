@@ -50,7 +50,6 @@ export class RecipeIngredientService {
     const data = await this.recipeIngredientRepository.find({
       where: { recipeId: id },
     });
-    console.log(data);
-    // TODO: ITT TÖRÖLNI MINDEN HOZZÁVALÓT!
+    await this.recipeIngredientRepository.remove(data);
   }
 }
