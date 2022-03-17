@@ -15,3 +15,8 @@ export class UpdateRecipeDto {
   picture: string;
   ingredients: UpdateRecipeIngredientDto[];
 }
+
+export class UploadImageDto {
+  name: string;
+  data: string;
+}

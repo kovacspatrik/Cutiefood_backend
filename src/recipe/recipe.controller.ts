@@ -8,7 +8,11 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { CreateRecipeDto, UpdateRecipeDto } from './dto/recipe.dto';
+import {
+  CreateRecipeDto,
+  UpdateRecipeDto,
+  UploadImageDto,
+} from './dto/recipe.dto';
 import { RecipeService } from './recipe.service';
 
 @Controller('recipe')
@@ -39,6 +43,11 @@ export class RecipeController {
   @Post('create')
   async create(@Body() recipe: CreateRecipeDto) {
     return this.recipeService.create(recipe);
+  }
+
+  @Post('upload_image')
+  async uploadImage(@Body() uploadData: UploadImageDto): Promise<any> {
+    return this.recipeService.uploadImage(uploadData);
   }
 
   @Put(':id/update')

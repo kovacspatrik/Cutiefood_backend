@@ -1,9 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RecipeIngredientService } from 'src/recipe-ingredient/recipe-ingredient.service';
 import { Repository } from 'typeorm';
-import { CreateRecipeDto, UpdateRecipeDto } from './dto/recipe.dto';
+import {
+  CreateRecipeDto,
+  UpdateRecipeDto,
+  UploadImageDto,
+} from './dto/recipe.dto';
 import { Recipe } from './recipe.entity';
+import fs from 'fs';
 
 @Injectable()
 export class RecipeService {
@@ -59,5 +64,28 @@ export class RecipeService {
 
   async deleteAll() {
     return await this.recipeRepository.clear();
+  }
+
+  async uploadImage(uploadData: UploadImageDto) {
+    var fs = require('fs');
+    const matches = uploadData.data.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
+
+    if (matches.length !== 3) {
+      throw new BadRequestException('Invalid input string');
+    }
+
+    const type = matches[1];
+    const dataBuffer = new Buffer(matches[2], 'base64');
+    // const extension = 'png'; //mime.extension(type);
+    console.log(type);
+    // console.log(mime.extension('image/png'));
+    const fileName = `${uploadData.name}`;
+    console.log(matches.length);
+    try {
+      fs.writeFileSync(`./storage/${fileName}`, dataBuffer, 'utf8');
+      return { status: 'success' };
+    } catch (e) {
+      return e.message;
+    }
   }
 }
