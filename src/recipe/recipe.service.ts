@@ -76,8 +76,6 @@ export class RecipeService {
 
     const type = matches[1];
     const dataBuffer = new Buffer(matches[2], 'base64');
-    // const extension = 'png'; //mime.extension(type);
-    // console.log(mime.extension('image/png'));
     const fileName = `${uploadData.name}`;
     try {
       fs.writeFileSync(`./storage/${fileName}`, dataBuffer, 'utf8');
