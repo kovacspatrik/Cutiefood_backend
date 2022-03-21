@@ -16,13 +16,13 @@ export class Recipe {
   @PrimaryGeneratedColumn({ name: 'id', type: 'int' })
   id: number;
 
-  @Column({ name: 'name', type: 'varchar', default: 'default recipe name' })
+  @Column({ name: 'name', type: 'varchar', default: 'Névtelen recept' })
   name: string;
 
   @Column({
     name: 'process',
     type: 'varchar',
-    default: 'default recipe making process',
+    default: 'Nincsenek megadva részletes lépések',
   })
   process: string;
 
