@@ -7,9 +7,11 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { RecipeIngredientDto } from './dto/recipe-ingredient.dto';
 import { RecipeIngredientService } from './recipe-ingredient.service';
 
+@ApiTags('Recipe-Ingredient')
 @Controller('recipe-ingredient')
 export class RecipeIngredientController {
   constructor(private recipeIngredientService: RecipeIngredientService) {}

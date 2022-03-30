@@ -1,7 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UserCalendarDto } from './dto/user-calendar.dto';
 import { UserCalendarService } from './user-calendar.service';
 
+@ApiTags('User-Calendar')
 @Controller('user-calendar')
 export class UserCalendarController {
   constructor(private userCalendarService: UserCalendarService) {}

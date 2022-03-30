@@ -31,10 +31,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
 
-  const options: SwaggerDocumentOptions = {
-    operationIdFactory: (controllerKey: string, methodKey: string) => methodKey,
-  };
-  const document = SwaggerModule.createDocument(app, config, options);
+  const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
 
   await app.listen(3000);
