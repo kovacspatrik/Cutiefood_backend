@@ -21,8 +21,7 @@ export class Recipe {
 
   @Column({
     name: 'process',
-    type: 'varchar',
-    default: 'Nincsenek megadva részletes lépések',
+    type: 'text',
   })
   process: string;
 
