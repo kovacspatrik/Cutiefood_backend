@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UserShoppingListDto } from './dto/user-shopping-list.dto';
 import { UserShoppingListService } from './user-shopping-list.service';
 
-@Controller('user-shopping-list')
+@ApiTags('User-Shoppinglist')
+@Controller('api/user-shopping-list')
 export class UserShoppingListController {
   constructor(private userShopListService: UserShoppingListService) {}
 

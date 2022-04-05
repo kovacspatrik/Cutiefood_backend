@@ -8,6 +8,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import {
   CreateRecipeDto,
   UpdateRecipeDto,
@@ -15,7 +16,8 @@ import {
 } from './dto/recipe.dto';
 import { RecipeService } from './recipe.service';
 
-@Controller('recipe')
+@ApiTags('Recipe')
+@Controller('api/recipe')
 export class RecipeController {
   constructor(private recipeService: RecipeService) {}
 

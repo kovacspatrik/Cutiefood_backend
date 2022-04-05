@@ -7,12 +7,14 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { create } from 'domain';
 import { NotFoundError } from 'rxjs';
 import { UserDto } from './dto/user.dto';
 import { UserService } from './user.service';
 
-@Controller('user')
+@ApiTags('User')
+@Controller('api/user')
 export class UserController {
   constructor(private userService: UserService) {}
 

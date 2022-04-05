@@ -1,8 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UserFavouriteRecipesDto } from './dto/user-favourite-recipes.dto';
 import { UserFavouriteRecipesService } from './user-favourite-recipes.service';
 
-@Controller('user-favourite-recipes')
+@ApiTags('User-Favourite-Recipes')
+@Controller('api/user-favourite-recipes')
 export class UserFavouriteRecipesController {
   constructor(
     private userFavouriteRecipesService: UserFavouriteRecipesService,
