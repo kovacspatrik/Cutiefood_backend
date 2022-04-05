@@ -14,7 +14,7 @@ import { CreateIngredientDto } from './dto/ingredient.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Ingredients')
-@Controller('ingredient')
+@Controller('api/ingredient')
 export class IngredientController {
   constructor(private ingredientService: IngredientService) {}
   @Get()

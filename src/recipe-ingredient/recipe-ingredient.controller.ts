@@ -12,7 +12,7 @@ import { RecipeIngredientDto } from './dto/recipe-ingredient.dto';
 import { RecipeIngredientService } from './recipe-ingredient.service';
 
 @ApiTags('Recipe-Ingredient')
-@Controller('recipe-ingredient')
+@Controller('api/recipe-ingredient')
 export class RecipeIngredientController {
   constructor(private recipeIngredientService: RecipeIngredientService) {}
 

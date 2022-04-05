@@ -4,7 +4,7 @@ import { UserFavouriteRecipesDto } from './dto/user-favourite-recipes.dto';
 import { UserFavouriteRecipesService } from './user-favourite-recipes.service';
 
 @ApiTags('User-Favourite-Recipes')
-@Controller('user-favourite-recipes')
+@Controller('api/user-favourite-recipes')
 export class UserFavouriteRecipesController {
   constructor(
     private userFavouriteRecipesService: UserFavouriteRecipesService,

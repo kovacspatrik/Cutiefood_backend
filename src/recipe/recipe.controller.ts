@@ -17,7 +17,7 @@ import {
 import { RecipeService } from './recipe.service';
 
 @ApiTags('Recipe')
-@Controller('recipe')
+@Controller('api/recipe')
 export class RecipeController {
   constructor(private recipeService: RecipeService) {}
 

@@ -4,7 +4,7 @@ import { UserCalendarDto } from './dto/user-calendar.dto';
 import { UserCalendarService } from './user-calendar.service';
 
 @ApiTags('User-Calendar')
-@Controller('user-calendar')
+@Controller('api/user-calendar')
 export class UserCalendarController {
   constructor(private userCalendarService: UserCalendarService) {}
 

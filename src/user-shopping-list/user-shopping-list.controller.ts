@@ -4,7 +4,7 @@ import { UserShoppingListDto } from './dto/user-shopping-list.dto';
 import { UserShoppingListService } from './user-shopping-list.service';
 
 @ApiTags('User-Shoppinglist')
-@Controller('user-shopping-list')
+@Controller('api/user-shopping-list')
 export class UserShoppingListController {
   constructor(private userShopListService: UserShoppingListService) {}
 
