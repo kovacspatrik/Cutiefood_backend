@@ -14,11 +14,11 @@ import { UserCalendarModule } from './user-calendar/user-calendar.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'eu-cdbr-west-02.cleardb.net',
       port: 3306,
-      username: 'root',
-      password: '',
-      database: 'cutiefood_backend',
+      username: 'bb2a39c4542cff',
+      password: '70b1fda4',
+      database: 'heroku_c937c3423f14ddf',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
