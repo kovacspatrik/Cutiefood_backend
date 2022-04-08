@@ -9,6 +9,8 @@ import { UserModule } from './user/user.module';
 import { UserFavouriteRecipesModule } from './user-favourite-recipes/user-favourite-recipes.module';
 import { UserShoppingListModule } from './user-shopping-list/user-shopping-list.module';
 import { UserCalendarModule } from './user-calendar/user-calendar.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -29,6 +31,9 @@ import { UserCalendarModule } from './user-calendar/user-calendar.module';
     UserFavouriteRecipesModule,
     UserShoppingListModule,
     UserCalendarModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'frontend'),
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
