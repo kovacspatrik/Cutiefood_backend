@@ -17,7 +17,7 @@ import { UserCalendarModule } from './user-calendar/user-calendar.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'Cityofocala2014',
+      password: '',
       database: 'cutiefood_backend',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
