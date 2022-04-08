@@ -1,6 +1,7 @@
 # compiled output
 /node_modules
-/storage
+/storage/*.jpg
+/storage/*.png
 /dist
 
 # Logs
