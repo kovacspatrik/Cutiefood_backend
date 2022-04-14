@@ -28,7 +28,8 @@ export class Recipe {
   @Column({
     name: 'picture',
     type: 'varchar',
-    default: 'default recipe picture',
+    default:
+      'https://firebasestorage.googleapis.com/v0/b/cutiefood-1a176.appspot.com/o/placeholder%2Fcutiefood_placeholder.png?alt=media&token=f946aae5-bc8e-4b7d-b3b0-bab96a9ae52c',
   })
   picture: string;
 
